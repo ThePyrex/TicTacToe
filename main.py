@@ -83,7 +83,6 @@ def chatgpt(board):
     ]
     )
     move = response['choices'][0]['message']['content']
-    print(move)
     if not isinstance(move, int):
         for letter in move:
             if letter.isdigit():
@@ -101,7 +100,6 @@ def chatgpt(board):
         ]
         )
         move = response['choices'][0]['message']['content']
-        print(move)
         if not isinstance(move, int):
             for letter in move:
                 if letter.isdigit():
@@ -114,7 +112,6 @@ def chatgpt(board):
 while gameRunning:
     printBoard(board)
     playerInput(board)
-    printBoard(board)
     if checkwin():
         break
     if checkTie(board):
