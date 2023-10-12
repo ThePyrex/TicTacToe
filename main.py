@@ -64,6 +64,15 @@ def checkwin():
         gameRunning = False
         return True
 
+def integerFilter(move):
+    if not isinstance(move, int):
+        for letter in move:
+            if letter.isdigit():
+                move = int(letter)
+                return move
+    else: 
+        move = int(move)
+        return move
 
 # switch player
 def switchPlayer():
@@ -82,12 +91,7 @@ def chatgpt(board):
     ]
     )
     move = response['choices'][0]['message']['content']
-    if not isinstance(move, int):
-        for letter in move:
-            if letter.isdigit():
-                move = int(letter)
-    else: 
-        move = int(move)
+    move = integerFilter(move)
     if board[move - 1] == "-":
         board[move - 1] = "O"
     else:
@@ -99,12 +103,7 @@ def chatgpt(board):
         ]
         )
         move = response['choices'][0]['message']['content']
-        if not isinstance(move, int):
-            for letter in move:
-                if letter.isdigit():
-                    move = int(letter)
-        else: 
-            move = int(move)
+        move = integerFilter(move)
         if board[move - 1] == "-":
             board[move - 1] = "O"
 
