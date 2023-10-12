@@ -26,14 +26,3 @@ To run this code, you'll need to install the OpenAI Python package and have an A
 7. The game will switch between you and ChatGPT until there's a winner or a tie.
 
 8. ChatGPT will make its moves based on the input you provide, so make sure to follow the prompt and choose a free spot on the board.
-
-## How ChatGPT Works
-ChatGPT is used to provide responses for the AI opponent. It generates its response based on the input you provide. ChatGPT will always return a number between 1 and 9, representing its move on the board. It will not overwrite an already filled slot, and if you make an invalid move, ChatGPT will prompt you to try again.
-
-## Getting Started
-1. Make sure you have Python installed on your system.
-2. Install the required OpenAI Python package using `pip install openai`.
-3. Replace the placeholder `openai.api_key` with your actual OpenAI API key.
-4. Run the code, and enjoy a game of Tic-Tac-Toe with ChatGPT!
-
-Feel free to reach out if you have any questions or encounter any issues while running the game. Have fun playing!
