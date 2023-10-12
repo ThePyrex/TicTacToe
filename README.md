@@ -3,7 +3,7 @@
 Welcome to this Python-based Tic-Tac-Toe game that also incorporates the power of ChatGPT for AI-powered moves. This game allows you to play Tic-Tac-Toe against an AI opponent, represented by ChatGPT, using the OpenAI API.
 
 ## Prerequisites
-To run this code, you'll need to install the OpenAI Python package and have an API key. You can sign up for the OpenAI API and obtain an API key from the OpenAI platform. Once you have your API key, replace the placeholder `openai.api_key` with your actual API key.
+To run this code, you'll need to install the OpenAI Python package and have an API key. You can sign up for the OpenAI API and obtain an API key from the OpenAI platform. Once you have your API key, replace the placeholder `your API key` with your actual API key.
 
 ## How to Play
 1. The game board is represented as a list of 9 slots, where each slot is initially marked with a '-'. The indices on the board are as follows:
