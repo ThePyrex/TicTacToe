@@ -8,6 +8,11 @@ To run this code, you'll need to install the OpenAI Python package and have an A
 ## How to Play
 1. The game board is represented as a list of 9 slots, where each slot is initially marked with a '-'. The indices on the board are as follows:
 
+| 1 | 2 | 3 |
+|---|---|---|
+| 4 | 5 | 6 |
+| 7 | 8 | 9 |
+
 2. The game starts with "X" as the first player and "O" as the ChatGPT AI opponent. Players take turns to make a move.
 
 3. When it's your turn, you will be prompted to enter a number between 1 and 9. This number corresponds to the index on the board where you want to place your mark.
