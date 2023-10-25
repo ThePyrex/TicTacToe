@@ -1,6 +1,6 @@
 import openai
 
-openai.api_key = "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"
+openai.api_key = "your API key"
 
 board = ['-', '-', '-',
         '-', '-', '-',
