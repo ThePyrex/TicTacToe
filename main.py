@@ -1,6 +1,7 @@
 import openai
+from simple_colors import *
 
-openai.api_key = "your API key"
+openai.api_key = "your api Key"
 
 board = ['-', '-', '-',
         '-', '-', '-',
@@ -42,6 +43,8 @@ def playerInput(board):
 def checkTie(board):
     global gameRunning
     if "-" not in board:
+        print("*"*25)
+        print("The final board is:")
         printBoard(board)
         print("Its a tie")
         gameRunning = False
@@ -58,6 +61,10 @@ def checkWin(board):
         (board[0] == board[4] == board[8] and board[0] != "-") or \
         (board[2] == board[4] == board[6] and board[2] != "-"):
         winner = currentPlayer
+        print("*"*25)
+        print("The final board is:")
+        printBoard(board)
+        print(f"The Winner is player {winner}")
         return True
 
 def integerFilter(move):
@@ -91,7 +98,7 @@ def check_game_end(board):
 # ChatGPT
 def chatgpt(board):
     response = openai.ChatCompletion.create(
-    model="gpt-4-0613",
+    model="gpt-3.5-turbo",
     messages = [
         {"role": "system", "content": f"You are player 'O' and you want to win this tic tac toe game. Use this board information {board} and answer with a number from 1-9 where you want to put you 'O'."},
         {"role": "user", "content": f"Please choose a free '-' spot on the 3x3 Tic-Tac-Toe board: {board}"},
@@ -103,9 +110,9 @@ def chatgpt(board):
         board[move - 1] = "O"
         counting_costs(response)
     else:
-        print("Second try needed")
+        print("Chat GPT answered in a wrong format. He needed a second try!")
         response = openai.ChatCompletion.create(
-        model="gpt-4-0613",
+        model="gpt-3.5-turbo",
         messages = [
         {"role": "system", "content": f"You are player 'O' and you want to win this tic tac toe game. Use this board information {board} and answer with a number from 1-9 where you want to put you 'O'."},
         {"role": "user", "content": f"This place is already taken. Try again: 3x3 Tic-Tac-Toe board: {board}"},
@@ -121,15 +128,17 @@ def main_game_loop():
     while gameRunning:
         printBoard(board)
         playerInput(board)
-        
+        printBoard(board)
         if check_game_end(board):
-            printBoard(board)
-            print(f"The Winner is player {winner}")
-            print(f"The Total costs for this game which consisted of {count} requests where: {costs} tokens")
+            print(green(f"The Total costs for this game which consisted of {count} requests where: {costs} tokens"))
             break
         
         switchPlayer()
         chatgpt(board)
+        if check_game_end(board):
+            print(green(f"The Total costs for this game which consisted of {count} requests where: {costs} tokens"))
+            break
+        print("Chat GPT´s turn:")
         switchPlayer()
 
 main_game_loop()
